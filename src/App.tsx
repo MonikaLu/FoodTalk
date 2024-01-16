@@ -1,10 +1,11 @@
 import "./App.css";
+import Recipe from "./components/Recipe";
 
 function App() {
   return (
     <>
       <div>
-        <h1>Hello!</h1>
+        <Recipe />
       </div>
     </>
   );
