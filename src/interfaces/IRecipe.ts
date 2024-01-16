@@ -1,14 +1,15 @@
 import { Mealtype } from "../enums/Mealtype";
-import { IIngredient } from "./IIngredient";
+import { Ingredient } from "./Ingredient";
 import { IReview } from "./IReview";
 
 export interface IRecipe {
   id: string;
+  title: string;
   mealType: Mealtype;
   portion: number;
   instructions: string[];
-  ingredients: IIngredient[];
+  ingredients: Ingredient[];
   tips: string;
-  picture: string;
+  img: string;
   review: IReview[];
 }
