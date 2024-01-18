@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { IRecipe } from "../interfaces/IRecipe";
 import { CiHeart } from "react-icons/ci";
-import { Button } from "@mui/material";
-
-// import Button from "./Button";
+import { Box, Button } from "@mui/material";
+import StyledBox from "./StyledBox";
 
 function Recipe(recipe: IRecipe) {
   const [save, setSave] = useState(false);
@@ -13,15 +12,33 @@ function Recipe(recipe: IRecipe) {
   };
 
   return (
-    <div>
-      <div>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
+        justifyItems: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+      }}
+    >
+      <Box>
         <img src={recipe.img} alt="" />
-      </div>
+      </Box>
 
-      <div>
-        <div>
-          <div>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          width: "100%",
+        }}
+      >
+        <StyledBox>
+          <StyledBox>
             <Button variant="contained" color="primary" onClick={handleSave}>
+              <CiHeart></CiHeart>
               Save
             </Button>
             <Button variant="contained" color="primary" onClick={handleSave}>
@@ -30,8 +47,8 @@ function Recipe(recipe: IRecipe) {
             <Button variant="contained" color="primary" onClick={handleSave}>
               Add to favorite
             </Button>
-          </div>
-          <div>
+          </StyledBox>
+          <StyledBox>
             <h2>Ingredients</h2>
             {recipe.ingredients.map((ingredient, index) => (
               <div key={index}>
@@ -39,9 +56,9 @@ function Recipe(recipe: IRecipe) {
                 {ingredient.measurement}
               </div>
             ))}
-          </div>
-        </div>
-        <div>
+          </StyledBox>
+        </StyledBox>
+        <StyledBox>
           <h1>{recipe.title}</h1>
           <h2>{recipe.mealType}</h2>
           <h2>Portion: {recipe.portion}</h2>
@@ -50,9 +67,9 @@ function Recipe(recipe: IRecipe) {
             <div key={index}>{instruction}</div>
           ))}
           <h3>{recipe.tips}</h3>
-        </div>
-      </div>
-    </div>
+        </StyledBox>
+      </Box>
+    </Box>
   );
 }
 
