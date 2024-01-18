@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { IRecipe } from "../interfaces/IRecipe";
 import { CiHeart } from "react-icons/ci";
+import { Button } from "@mui/material";
 
-import Button from "./Button";
+// import Button from "./Button";
 
 function Recipe(recipe: IRecipe) {
   const [save, setSave] = useState(false);
@@ -12,19 +13,25 @@ function Recipe(recipe: IRecipe) {
   };
 
   return (
-    <div className="flex flex-col space-y-5">
-      <div className="flex justify-center">
+    <div>
+      <div>
         <img src={recipe.img} alt="" />
       </div>
 
-      <div className="flex w-full flex-row justify-center">
-        <div className="flex flex-col space-y-5">
-          <div className="flex flex-col bg-boxBackground items-center space-y-2">
-            <Button btnText="Save" icon={CiHeart} onClick={handleSave} />
-            <Button btnText="Add to grocery list" />
-            <Button btnText="Add to week planner" />
+      <div>
+        <div>
+          <div>
+            <Button variant="contained" color="primary" onClick={handleSave}>
+              Save
+            </Button>
+            <Button variant="contained" color="primary" onClick={handleSave}>
+              Add to week planner
+            </Button>
+            <Button variant="contained" color="primary" onClick={handleSave}>
+              Add to favorite
+            </Button>
           </div>
-          <div className="flex flex-col bg-boxBackground items-center space-y-2">
+          <div>
             <h2>Ingredients</h2>
             {recipe.ingredients.map((ingredient, index) => (
               <div key={index}>
@@ -34,7 +41,7 @@ function Recipe(recipe: IRecipe) {
             ))}
           </div>
         </div>
-        <div className="flex flex-col bg-boxBackground items-center space-y-2">
+        <div>
           <h1>{recipe.title}</h1>
           <h2>{recipe.mealType}</h2>
           <h2>Portion: {recipe.portion}</h2>
