@@ -5,7 +5,7 @@ export default {
     colors: {
       background: "#fef2f2",
       btbBg: "#059669",
-      boxBackground: "#fafafa",
+      boxBackground: "#ffffff",
       fontColor: "#f0fdf4",
     },
     extend: {},

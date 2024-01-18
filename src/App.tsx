@@ -26,7 +26,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="bg-background ">
         <Recipe {...mockData} />
       </div>
     </>

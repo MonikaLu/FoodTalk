@@ -12,16 +12,19 @@ function Recipe(recipe: IRecipe) {
   };
 
   return (
-    <div className="bg-background flex-row">
-      <img src={recipe.img} alt="" />
-      <div className="flex w-full">
-        <div>
+    <div className="flex flex-col space-y-5">
+      <div className="flex justify-center">
+        <img src={recipe.img} alt="" />
+      </div>
+
+      <div className="flex w-full flex-row justify-center">
+        <div className="flex flex-col space-y-5">
           <div className="flex flex-col bg-boxBackground items-center space-y-2">
             <Button btnText="Save" icon={CiHeart} onClick={handleSave} />
             <Button btnText="Add to grocery list" />
             <Button btnText="Add to week planner" />
           </div>
-          <div>
+          <div className="flex flex-col bg-boxBackground items-center space-y-2">
             <h2>Ingredients</h2>
             {recipe.ingredients.map((ingredient, index) => (
               <div key={index}>
@@ -31,7 +34,7 @@ function Recipe(recipe: IRecipe) {
             ))}
           </div>
         </div>
-        <div>
+        <div className="flex flex-col bg-boxBackground items-center space-y-2">
           <h1>{recipe.title}</h1>
           <h2>{recipe.mealType}</h2>
           <h2>Portion: {recipe.portion}</h2>
