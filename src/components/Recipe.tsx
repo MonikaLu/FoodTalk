@@ -9,7 +9,7 @@ function Recipe(recipe: IRecipe) {
   };
 
   return (
-    <div className="bg-cyan-100">
+    <div className="bg-emerald-400 h-20 rounded-md border-4 p-6 ">
       <img src={recipe.img} alt="" />
       <div>
         <button onClick={handleSave}>Save</button>
