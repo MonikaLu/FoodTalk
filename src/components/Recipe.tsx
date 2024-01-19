@@ -30,12 +30,21 @@ function Recipe(recipe: IRecipe) {
         sx={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "space-evenly",
-          alignItems: "center",
+          justifyContent: "center",
+          alignItems: "flex-start",
+          height: "70vh",
           width: "100%",
+          gap: "5%",
+          marginTop: "10%",
         }}
       >
-        <StyledBox>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-around",
+          }}
+        >
           <StyledBox>
             <Button variant="contained" color="primary" onClick={handleSave}>
               <CiHeart></CiHeart>
@@ -48,7 +57,7 @@ function Recipe(recipe: IRecipe) {
               Add to favorite
             </Button>
           </StyledBox>
-          <StyledBox>
+          <StyledBox style={{ marginTop: "10%" }}>
             <h2>Ingredients</h2>
             {recipe.ingredients.map((ingredient, index) => (
               <div key={index}>
@@ -57,7 +66,7 @@ function Recipe(recipe: IRecipe) {
               </div>
             ))}
           </StyledBox>
-        </StyledBox>
+        </div>
         <StyledBox>
           <h1>{recipe.title}</h1>
           <h2>{recipe.mealType}</h2>
