@@ -8,6 +8,8 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import StyledBox from "./StyledBox";
 import ContainedButton from "./Button";
 import theme from "../theme";
+import Divider from "@mui/material/Divider";
+
 function Recipe(recipe: IRecipe) {
   const [save, setSave] = useState(false);
 
@@ -129,6 +131,16 @@ function Recipe(recipe: IRecipe) {
                 }}
               />
             </div>
+            <hr
+              style={{
+                width: "90%",
+                marginTop: "1%",
+                borderStyle: "solid",
+                color: theme.palette.primary.light,
+                borderTop: "1px",
+              }}
+            />
+
             {recipe.ingredients.map((ingredient, index) => (
               <div key={index}>
                 {ingredient.title}: {ingredient.quantity}{" "}
