@@ -1,19 +1,27 @@
-const Button = (props: {
-  btnText: string;
-  icon?: React.ComponentType;
-  onClick?: () => void;
-}) => {
-  const Icon = props.icon;
+import { Button } from "@mui/material";
 
+interface ContainedButtonProps {
+  btnText: string;
+  icon: React.ReactNode;
+  onClick?: () => void;
+}
+
+const ContainedButton = ({ btnText, icon, onClick }: ContainedButtonProps) => {
   return (
-    <div
-      className="flex flex-row space-x-2 items-center justify-around bg-btbBg text-fontColor w-3/4 py-2 px-4 rounded cursor-pointer"
-      onClick={props.onClick}
+    <Button
+      sx={{
+        width: "50%",
+        height: "30%",
+        display: "flex",
+        justifyContent: "space-evenly",
+        textAlign: "left",
+      }}
+      startIcon={icon}
+      onClick={onClick}
     >
-      {Icon && <Icon />}
-      <p>{props.btnText}</p>
-    </div>
+      <p>{btnText}</p>
+    </Button>
   );
 };
 
-export default Button;
+export default ContainedButton;
