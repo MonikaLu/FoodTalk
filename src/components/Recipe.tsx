@@ -54,6 +54,9 @@ function Recipe(recipe: IRecipe) {
             style={{
               width: "100%",
               height: "100%",
+              alignItems: "center",
+              gap: "10px",
+              padding: "5% 0 5% 0",
             }}
           >
             <ContainedButton

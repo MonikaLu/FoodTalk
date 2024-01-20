@@ -11,11 +11,16 @@ const ContainedButton = ({ btnText, icon, onClick }: ContainedButtonProps) => {
     <Button
       sx={{
         width: "50%",
-        height: "30%",
+        height: "60px",
         display: "flex",
-        justifyContent: "space-evenly",
+        justifyContent: "flex-start",
         textAlign: "left",
+        "&:hover": {
+          backgroundColor: "primary.main",
+          color: "#ffffff",
+        },
       }}
+      variant="outlined"
       startIcon={icon}
       onClick={onClick}
     >
