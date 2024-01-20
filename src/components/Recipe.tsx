@@ -76,9 +76,30 @@ function Recipe(recipe: IRecipe) {
               onClick={handleSave}
             ></ContainedButton>
           </StyledBox>
-          <StyledBox style={{ marginTop: "10%", textAlign: "center" }}>
+          <StyledBox
+            style={{
+              marginTop: "10%",
+              textAlign: "center",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <h2>INGREDIENTS</h2>
-            <div>
+            <div
+              style={{
+                width: "15%",
+                height: "25px",
+                padding: "1%",
+                borderRadius: "36px",
+                backgroundColor: theme.palette.primary.light,
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                fontSize: "25px",
+                lineHeight: "bold",
+                gap: "5px",
+              }}
+            >
               <RemoveIcon
                 sx={{
                   borderRadius: "100%",
@@ -86,7 +107,20 @@ function Recipe(recipe: IRecipe) {
                   color: theme.palette.primary.contrastText,
                 }}
               />
-              1
+              <div
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: "10%",
+                  backgroundColor: theme.palette.primary.contrastText,
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <p>1</p>
+              </div>
+
               <AddIcon
                 sx={{
                   borderRadius: "100%",
