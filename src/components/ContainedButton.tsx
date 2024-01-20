@@ -16,6 +16,7 @@ const ContainedButton = ({ btnText, icon, onClick }: ContainedButtonProps) => {
         justifyContent: "flex-start",
         textAlign: "left",
         color: "primary.dark",
+        gap: "3%",
         "&:hover": {
           backgroundColor: "primary.main",
           color: "primary.contrastText",
@@ -28,9 +29,9 @@ const ContainedButton = ({ btnText, icon, onClick }: ContainedButtonProps) => {
         },
       }}
       variant="outlined"
-      startIcon={icon}
       onClick={onClick}
     >
+      {icon}
       <p>{btnText}</p>
     </Button>
   );
