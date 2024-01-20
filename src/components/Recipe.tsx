@@ -4,9 +4,10 @@ import { Box } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
+import RemoveIcon from "@mui/icons-material/Remove";
 import StyledBox from "./StyledBox";
 import ContainedButton from "./Button";
-
+import theme from "../theme";
 function Recipe(recipe: IRecipe) {
   const [save, setSave] = useState(false);
 
@@ -75,8 +76,25 @@ function Recipe(recipe: IRecipe) {
               onClick={handleSave}
             ></ContainedButton>
           </StyledBox>
-          <StyledBox style={{ marginTop: "10%" }}>
-            <h2>Ingredients</h2>
+          <StyledBox style={{ marginTop: "10%", textAlign: "center" }}>
+            <h2>INGREDIENTS</h2>
+            <div>
+              <RemoveIcon
+                sx={{
+                  borderRadius: "100%",
+                  backgroundColor: theme.palette.primary.main,
+                  color: theme.palette.primary.contrastText,
+                }}
+              />
+              1
+              <AddIcon
+                sx={{
+                  borderRadius: "100%",
+                  backgroundColor: theme.palette.primary.main,
+                  color: theme.palette.primary.contrastText,
+                }}
+              />
+            </div>
             {recipe.ingredients.map((ingredient, index) => (
               <div key={index}>
                 {ingredient.title}: {ingredient.quantity}{" "}
