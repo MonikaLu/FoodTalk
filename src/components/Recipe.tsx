@@ -20,10 +20,11 @@ function Recipe(recipe: IRecipe) {
         justifyItems: "center",
         alignItems: "center",
         minHeight: "100vh",
+        width: "100%",
       }}
     >
-      <Box>
-        <img src={recipe.img} alt="" />
+      <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
+        <img width="70%" src={recipe.img} alt="" />
       </Box>
 
       <Box
