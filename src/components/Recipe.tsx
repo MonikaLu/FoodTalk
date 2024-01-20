@@ -6,9 +6,10 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import RemoveIcon from "@mui/icons-material/Remove";
 import StyledBox from "./StyledBox";
-import ContainedButton from "./Button";
+import ContainedButton from "./ContainedButton";
 import theme from "../theme";
-import Divider from "@mui/material/Divider";
+import StyledDivider from "./StyledDivider";
+import RoundedButton from "./RoundedButton";
 
 function Recipe(recipe: IRecipe) {
   const [save, setSave] = useState(false);
@@ -131,22 +132,42 @@ function Recipe(recipe: IRecipe) {
                 }}
               />
             </div>
-            <hr
-              style={{
-                width: "90%",
-                marginTop: "1%",
-                borderStyle: "solid",
-                color: theme.palette.primary.light,
-                borderTop: "1px",
-              }}
-            />
-
+            <StyledDivider />
             {recipe.ingredients.map((ingredient, index) => (
               <div key={index}>
-                {ingredient.title}: {ingredient.quantity}{" "}
-                {ingredient.measurement}
+                {ingredient.quantity}
+                {ingredient.measurement} {ingredient.title}
               </div>
             ))}
+            <StyledDivider />
+            <h3>DEL</h3>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-evenly",
+                lineHeight: "bold",
+                width: "100%",
+                height: "150px",
+                marginTop: "3%",
+              }}
+            >
+              <RoundedButton
+                btnText="Kopier Lenke"
+                onClick={handleSave}
+                icon={<AddIcon />}
+              />
+              <RoundedButton
+                btnText="Send e-post"
+                onClick={handleSave}
+                icon={<AddIcon />}
+              />
+              <RoundedButton
+                btnText="Send SMS"
+                onClick={handleSave}
+                icon={<AddIcon />}
+              />
+            </div>
           </StyledBox>
         </div>
         <StyledBox style={{ textAlign: "center", width: "40%" }}>
