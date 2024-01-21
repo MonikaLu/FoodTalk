@@ -6,7 +6,6 @@ import OutdoorGrillOutlinedIcon from "@mui/icons-material/OutdoorGrillOutlined";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
-import RemoveIcon from "@mui/icons-material/Remove";
 import StyledBox from "./StyledBox";
 import ContainedButton from "./ContainedButton";
 import theme from "../theme";
@@ -16,6 +15,7 @@ import IconBox from "./IconBox";
 import InstructionStep from "./InstructionStep";
 import InformationBox from "./InformationBox";
 import StyledTypography from "./StyledTypography";
+import PortionsCalculator from "./PortionsCalculator";
 
 function Recipe(recipe: IRecipe) {
   const [save, setSave] = useState(false);
@@ -74,12 +74,12 @@ function Recipe(recipe: IRecipe) {
               onClick={handleSave}
             ></ContainedButton>
             <ContainedButton
-              btnText="Add to Grocery List"
+              btnText="Add to Groceries"
               icon={<AddShoppingCartIcon />}
               onClick={handleSave}
             ></ContainedButton>
             <ContainedButton
-              btnText="Add to Weekly Planner"
+              btnText="Add to Planner"
               icon={<DriveFileRenameOutlineIcon />}
               onClick={handleSave}
             ></ContainedButton>
@@ -92,51 +92,8 @@ function Recipe(recipe: IRecipe) {
               alignItems: "center",
             }}
           >
-            <StyledTypography variant="h3" content="INGREDIENTS" />
-            <div
-              style={{
-                width: "15%",
-                height: "25px",
-                padding: "1%",
-                borderRadius: "36px",
-                backgroundColor: theme.palette.primary.light,
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                fontSize: "25px",
-                lineHeight: "bold",
-                gap: "5px",
-              }}
-            >
-              <RemoveIcon
-                sx={{
-                  borderRadius: "100%",
-                  backgroundColor: theme.palette.primary.main,
-                  color: theme.palette.primary.contrastText,
-                }}
-              />
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: "10%",
-                  backgroundColor: theme.palette.primary.contrastText,
-                  alignItems: "center",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                <StyledTypography variant="body1" content="1" />
-              </div>
-
-              <AddIcon
-                sx={{
-                  borderRadius: "100%",
-                  backgroundColor: theme.palette.primary.main,
-                  color: theme.palette.primary.contrastText,
-                }}
-              />
-            </div>
+            <StyledTypography variant="h4" content="INGREDIENTS" />
+            <PortionsCalculator />
             <StyledDivider />
             {recipe.ingredients.map((ingredient, index) => (
               <div key={index}>
@@ -238,7 +195,7 @@ function Recipe(recipe: IRecipe) {
             />
           </div>
           <StyledDivider />
-          <StyledTypography variant="h3" content="INSTRUCTIONS" />
+          <StyledTypography variant="h4" content="INSTRUCTIONS" />
           {recipe.instructions.map((instruction, index) => (
             <InstructionStep
               key={index}

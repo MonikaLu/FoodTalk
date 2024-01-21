@@ -22,9 +22,9 @@ const RoundedButton = ({ btnText, icon, onClick }: RoundedButtonProps) => {
       <Button
         variant="contained"
         sx={{
-          borderRadius: "50%",
+          borderRadius: "100%",
           height: "100px",
-          width: "100px",
+          width: "80px",
           boxShadow: 0,
           color: theme.palette.primary.dark,
           backgroundColor: theme.palette.primary.light,
