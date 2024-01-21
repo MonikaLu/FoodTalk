@@ -48,7 +48,7 @@ function Recipe(recipe: IRecipe) {
           alignItems: "flex-start",
           height: "70vh",
           width: "100%",
-          gap: "5%",
+          gap: "2%",
         }}
       >
         <div
@@ -183,6 +183,7 @@ function Recipe(recipe: IRecipe) {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-around",
+              height: "90px",
             }}
           >
             <IconBox

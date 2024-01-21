@@ -13,13 +13,12 @@ const IconBox = ({ text, icon }: IconBoxProps) => {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        gap: "1%",
-        height: "30px",
+        height: "100%",
         width: "100%",
       }}
     >
       {icon}
-      <StyledTypography variant="body2" content={text} />
+      <StyledTypography variant="h5" content={text} />
     </div>
   );
 };
