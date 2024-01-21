@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { IRecipe } from "../interfaces/IRecipe";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import OutdoorGrillOutlinedIcon from "@mui/icons-material/OutdoorGrillOutlined";
+import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -10,6 +12,10 @@ import ContainedButton from "./ContainedButton";
 import theme from "../theme";
 import StyledDivider from "./StyledDivider";
 import RoundedButton from "./RoundedButton";
+import IconBox from "./IconBox";
+import InstructionStep from "./InstructionStep";
+import InformationBox from "./InformationBox";
+import StyledTypography from "./StyledTypography";
 
 function Recipe(recipe: IRecipe) {
   const [save, setSave] = useState(false);
@@ -31,7 +37,7 @@ function Recipe(recipe: IRecipe) {
       }}
     >
       <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
-        <img width="70%" src={recipe.img} alt="" />
+        <img width="70%" height="90%" src={recipe.img} alt="" />
       </Box>
 
       <Box
@@ -43,7 +49,6 @@ function Recipe(recipe: IRecipe) {
           height: "70vh",
           width: "100%",
           gap: "5%",
-          marginTop: "5%",
         }}
       >
         <div
@@ -55,7 +60,7 @@ function Recipe(recipe: IRecipe) {
           }}
         >
           <StyledBox
-            style={{
+            sx={{
               width: "100%",
               height: "100%",
               alignItems: "center",
@@ -80,14 +85,14 @@ function Recipe(recipe: IRecipe) {
             ></ContainedButton>
           </StyledBox>
           <StyledBox
-            style={{
+            sx={{
               marginTop: "10%",
               textAlign: "center",
               justifyContent: "center",
               alignItems: "center",
             }}
           >
-            <h2>INGREDIENTS</h2>
+            <StyledTypography variant="h3" content="INGREDIENTS" />
             <div
               style={{
                 width: "15%",
@@ -121,7 +126,7 @@ function Recipe(recipe: IRecipe) {
                   justifyContent: "center",
                 }}
               >
-                <p>1</p>
+                <StyledTypography variant="body1" content="1" />
               </div>
 
               <AddIcon
@@ -135,12 +140,21 @@ function Recipe(recipe: IRecipe) {
             <StyledDivider />
             {recipe.ingredients.map((ingredient, index) => (
               <div key={index}>
-                {ingredient.quantity}
-                {ingredient.measurement} {ingredient.title}
+                <StyledTypography
+                  variant="body1"
+                  content={
+                    ingredient.quantity +
+                    " " +
+                    ingredient.measurement +
+                    " " +
+                    ingredient.title
+                  }
+                />
               </div>
             ))}
             <StyledDivider />
-            <h3>DEL</h3>
+            <StyledTypography variant="h4" content="DEL" />
+
             <div
               style={{
                 display: "flex",
@@ -170,16 +184,77 @@ function Recipe(recipe: IRecipe) {
             </div>
           </StyledBox>
         </div>
-        <StyledBox style={{ textAlign: "center", width: "40%" }}>
-          <h2>{recipe.mealType}</h2>
-          <h1>{recipe.title}</h1>
-
-          <h2>Portion: {recipe.portion}</h2>
-          <h2>Instructions</h2>
+        <StyledBox
+          sx={{
+            textAlign: "center",
+            width: "40%",
+            justifyContent: "center",
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            <Button
+              variant="outlined"
+              sx={{
+                marginTop: "5%",
+                borderRadius: "36px",
+                minWidth: "10%",
+                height: "35px",
+                borderColor: theme.palette.primary.main,
+                color: theme.palette.primary.main,
+                "&:hover": {
+                  backgroundColor: theme.palette.primary.light,
+                  color: theme.palette.primary.main,
+                },
+              }}
+            >
+              <StyledTypography variant="body1" content={recipe.mealType} />
+            </Button>
+          </div>
+          <StyledTypography variant="h1" content={recipe.title} />
+          <StyledTypography
+            variant="h4"
+            content={recipe.portion + " Portions"}
+          />
+          <StyledDivider />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+            }}
+          >
+            <IconBox
+              text={recipe.timeEstimation.toString() + " MIN"}
+              icon={<AccessTimeOutlinedIcon />}
+            />
+            <IconBox
+              text={recipe.difficulty}
+              icon={<OutdoorGrillOutlinedIcon />}
+            />
+          </div>
+          <StyledDivider />
+          <StyledTypography variant="h3" content="INSTRUCTIONS" />
           {recipe.instructions.map((instruction, index) => (
-            <div key={index}>{instruction}</div>
+            <InstructionStep
+              key={index}
+              content={instruction}
+            ></InstructionStep>
           ))}
-          <h3>{recipe.tips}</h3>
+          <StyledBox
+            sx={{
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%",
+              height: "100%",
+            }}
+          >
+            <InformationBox content={recipe.tips} />
+          </StyledBox>
         </StyledBox>
       </Box>
     </Box>

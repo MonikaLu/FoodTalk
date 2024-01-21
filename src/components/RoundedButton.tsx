@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import theme from "../theme";
+import StyledTypography from "./StyledTypography";
 
 interface RoundedButtonProps {
   btnText: string;
@@ -35,7 +36,7 @@ const RoundedButton = ({ btnText, icon, onClick }: RoundedButtonProps) => {
       >
         {icon}
       </Button>
-      <p>{btnText}</p>
+      <StyledTypography variant="body2" content={btnText} />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+import { Difficulty } from "../enums/Difficulty";
 import { Mealtype } from "../enums/Mealtype";
 import { Ingredient } from "./Ingredient";
 import { IReview } from "./IReview";
@@ -12,4 +13,6 @@ export interface IRecipe {
   tips: string;
   img: string;
   review: IReview[];
+  difficulty: Difficulty;
+  timeEstimation: number;
 }

@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import StyledTypography from "./StyledTypography";
 
 interface ContainedButtonProps {
   btnText: string;
@@ -15,7 +16,7 @@ const ContainedButton = ({ btnText, icon, onClick }: ContainedButtonProps) => {
         display: "flex",
         justifyContent: "flex-start",
         textAlign: "left",
-        color: "primary.dark",
+        color: "primary.main",
         gap: "3%",
         "&:hover": {
           backgroundColor: "primary.main",
@@ -32,7 +33,7 @@ const ContainedButton = ({ btnText, icon, onClick }: ContainedButtonProps) => {
       onClick={onClick}
     >
       {icon}
-      <p>{btnText}</p>
+      <StyledTypography variant="body2" content={btnText} />
     </Button>
   );
 };
