@@ -36,8 +36,8 @@ function Recipe(recipe: IRecipe) {
         width: "100%",
       }}
     >
-      <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
-        <img width="70%" height="90%" src={recipe.img} alt="" />
+      <Box sx={{ width: "90%", display: "flex", justifyContent: "center" }}>
+        <img width="100%" height="90%" src={recipe.img} alt="" />
       </Box>
 
       <Box
@@ -48,7 +48,6 @@ function Recipe(recipe: IRecipe) {
           alignItems: "flex-start",
           height: "70vh",
           width: "100%",
-          gap: "2%",
         }}
       >
         <div
@@ -61,7 +60,7 @@ function Recipe(recipe: IRecipe) {
         >
           <StyledBox
             sx={{
-              width: "100%",
+              width: "80%",
               height: "100%",
               alignItems: "center",
               gap: "10px",
@@ -90,6 +89,7 @@ function Recipe(recipe: IRecipe) {
               textAlign: "center",
               justifyContent: "center",
               alignItems: "center",
+              width: "80%",
             }}
           >
             <StyledTypography variant="h4" content="INGREDIENTS" />
